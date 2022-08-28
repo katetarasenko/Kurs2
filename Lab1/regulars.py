@@ -77,3 +77,7 @@ for st in splitted:
 z =splitted[0]
 cnt1 = len(re.findall(pattern, splitted[0]))
 print(cnt1)
+cnt2 = len(re.findall(pattern, splitted[1]))
+print(cnt2)
+cnt3 = len(re.findall(pattern, splitted[2]))
+print(cnt3)
