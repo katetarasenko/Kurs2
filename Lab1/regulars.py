@@ -68,6 +68,12 @@ for x in res:
 print(text)
 
 s ="Ще не померла! / Закінчується осінь, / Я йду за обрій."
+splitted = re.split("/", s.lower())
+print(splitted)
 pattern = r"[^аеоієуя]?(?:(?<=w)[аеоієуя]|(?<=[^аеоієуя])[аеоієуя]|(?<=[аеоієуя])[:аеоієуя]|(?<=\b)[аеоієуя])"
-res = re.findall(pattern, s)
-print(res)
+for st in splitted:
+    res = re.findall(pattern, st)
+    print(res)
+z =splitted[0]
+cnt1 = len(re.findall(pattern, splitted[0]))
+print(cnt1)
