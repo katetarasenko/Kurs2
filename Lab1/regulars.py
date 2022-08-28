@@ -12,7 +12,7 @@ res = re.findall(r"\b[A-Z]{2}\d{4}[A-Z]{2}",s)
 print(res)
 region = {'AA':'Kyiv', 'AE':'Dnipropetrivsk obl', 'AH':'Donetsk'}
 
-#matches = re.finditer(r"\b\w{2}", x)
+#matches = re.finditer(r"\b\w{2}", s)
 #for matchNum, match in enumerate(matches, start=1):
 #    print(match)
 
