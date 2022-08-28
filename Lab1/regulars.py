@@ -51,6 +51,12 @@ if res:
 else:
     print("password pattern not matched")
 
+s = "Розробіть скрипт, який буде порівнювати пароль, що вводить користувач з шаблоном, зашитим у коді. При цьому порівняння не повинно враховувати регістр, пробіли та всі інші розділові знаки, крім дефісу."
+res = re.findall(r"\b\w+", s)
+word = len(res)
+print(res)
+print("there are " + str(word) + " words in text")
+
 
 # NASA UFO...
 s = "numb, amber,simple,ape"
@@ -60,3 +66,8 @@ text = ""
 for x in res:
     text = text + x[0].upper()
 print(text)
+
+s ="Ще не померла! / Закінчується осінь, / Я йду за обрій."
+pattern = r"[^аеоієуя]?(?:(?<=w)[аеоієуя]|(?<=[^аеоієуя])[аеоієуя]|(?<=[аеоієуя])[:аеоієуя]|(?<=\b)[аеоієуя])"
+res = re.findall(pattern, s)
+print(res)
