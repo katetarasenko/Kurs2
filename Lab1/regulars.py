@@ -67,18 +67,23 @@ for x in res:
     text = text + x[0].upper()
 print(text)
 
-s ="Ще не померла! / Закінчується осінь, / Я йду за обрій."
-s = "Ночую просто неба. / Виє пес. / Теж допекла, мабýть, осіння мряка!"
-splitted = re.split("/", s.lower())
-print(splitted)
-#pattern = r"(?<=[^аеоіиєуюя])[аеоіиєуюя]|(?<=[аеоіиєуюя])[:аеоіиєуюя]|(?<=\b)[аеоіиєуюя]"
+verses=['Ще не померла! / Закінчується осінь, / Я йду за обрій.',
+       'Ночую просто неба. / Виє пес. / Теж допекла, мабýть, осіння мряка!',
+       'Вода замерзла, / Розколовши глечик. / І тріск раптовий розбудив мене.']
+
 pattern = r"(?<=[^аеоіиєуюя])[аеоіиєуюя]|(?<=[аеоіиєуюя])[:аеоіиєуюя]"
-#for st in splitted:
-#    res = re.findall(pattern, st)
-#    print(res)
-cnt1 = len(re.findall(pattern, splitted[0]))
-print(cnt1)
-cnt2 = len(re.findall(pattern, splitted[1]))
-print(cnt2)
-cnt3 = len(re.findall(pattern, splitted[2]))
-print(cnt3)
+
+for verse in verses:
+    print(verse)
+    splitted = re.split("/", verse.lower())
+    #print(splitted)
+    cnt1 = len(re.findall(pattern, splitted[0]))
+    #print(cnt1)
+    cnt2 = len(re.findall(pattern, splitted[1]))
+    #print(cnt2)
+    cnt3 = len(re.findall(pattern, splitted[2]))
+    #print(cnt3)
+    if cnt1==5 & cnt2==7 & cnt3 == 5:
+        print("Haiku")
+    else:
+        print("NOT Haiku"+" "+str(cnt1)+" "+str(cnt2)+" "+str(cnt3))
