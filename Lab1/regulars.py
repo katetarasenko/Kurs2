@@ -17,5 +17,6 @@ region = {'AA':'Kyiv', 'AE':'Dnipropetrivsk obl', 'AH':'Donetsk'}
 #    print(match)
 
 for x in res:
-    reg = re.findall(r"\b\w{2}",x)
-    print(region.get(reg[0]))
+    rr = str(x[0]+x[1])
+    #reg = re.findall(r"\b\w{2}", x)
+    print(region.get(rr))
