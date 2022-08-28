@@ -50,3 +50,13 @@ if res:
     print(res)
 else:
     print("password pattern not matched")
+
+
+# NASA UFO...
+s = "numb, amber,simple,ape"
+res = re.findall(r"\b\w+", s)
+print(res)
+text = ""
+for x in res:
+    text = text + x[0].upper()
+print(text)
