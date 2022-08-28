@@ -43,8 +43,10 @@ res = re.findall(pattern, s)
 if res:
     print(res)
 
-s = "password"
-pattern = "\w[a-z0-9!#$%&'*+/=?^_`{|}~-]{3,}"
+s = "a2p333ad!23"
+pattern = "[a-z0-9!#$%&'*+=?^_`{|}~-]{5,}"
 res = re.findall(pattern, s)
 if res:
     print(res)
+else:
+    print("password pattern not matched")
