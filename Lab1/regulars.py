@@ -89,24 +89,23 @@ for verse in verses:
         print("NOT Haiku"+" "+str(cnt1)+" "+str(cnt2)+" "+str(cnt3))
 
 
-s = "Дуже поширена помилка помилка - це лише повторення повторення слова слова. Смішно, чи чи не так? Це - книга книгарні."
-pattern = r'\b(\w+)\s\1\b'
+s = "Дуже      поширена помилка помилка - це лише      повторення повторення слова слова. Смішно, чи чи не так? Це - книга книгарні."
+pattern = r'(\b\w+\s)\1'
 print(s)
 print(re.sub(pattern, r'\1', s))
 
 
-badtext =['В        цьому',
-'реченні розриви рядків... Але це',
-'не так важливо! Зовсім? Так, зовсім! І це не повинно   заважати.']
-print(badtext)
-s = ""
-for t in badtext:
-    s = s + str(t)
 
-pattern = r'(\s)\1+' #удалаем двойные пробелы
-s = re.sub(pattern, r'\1', s)
+badtext ='В        цьому\nреченні розриви рядків... Але це\nне так важливо! Зовсім? Так, зовсім! І це не повинно   заважати.'
+s = re.sub(r'(\n)|(\s{2,})', ' ', badtext) #удалаем двойные пробелы или перенос строки на один пробел
+print(s)
 
-regex = r"([^\s!.?]+[\w\s]+\.\.\.)|([^\s!.?]+[\w\s]+[.?!])"
-matches = re.finditer(regex, s, re.MULTILINE)
+#pattern = r'\s+' #удалаем двойные пробелы
+#s = re.sub(pattern, ' ', s)
+
+
+pattern = r"([^\s!.?]+[\w\s]+\.\.\.)|([^\s!.?]+[\w\s]+[.?!])"
+matches = re.finditer(pattern, s, re.MULTILINE)
 for matchNum, match in enumerate(matches, start=1):
-    print("{match}".format(match=match.group()))
+    print(match.group())
+
