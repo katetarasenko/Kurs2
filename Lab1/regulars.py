@@ -92,7 +92,7 @@ for verse in verses:
 s = "Дуже поширена помилка помилка - це лише повторення повторення слова слова. Смішно, чи чи не так? Це - книга книгарні."
 pattern = r'\b(\w+)\s\1\b'
 print(s)
-print(re.sub(pattern, r'\1', s, flags=re.IGNORECASE))
+print(re.sub(pattern, r'\1', s))
 
 
 badtext =['В        цьому',
