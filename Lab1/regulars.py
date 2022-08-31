@@ -43,8 +43,8 @@ res = re.findall(pattern, s)
 if res:
     print(res)
 
-s = "a2p333ad!23"
-pattern = "[a-z0-9!#$%&'*+=?^_`{|}~-]{5,}"
+s = "a2p333ad-23"
+pattern = "[\w\d-]{8,15}"
 res = re.findall(pattern, s)
 if res:
     print(res)
