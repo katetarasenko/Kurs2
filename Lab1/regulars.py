@@ -70,9 +70,8 @@ print(text)
 verses=['Ще не померла! / Закінчується осінь, / Я йду за обрій.',
        'Ночую просто неба. / Виє пес. / Теж допекла, мабýть, осіння мряка!',
        'Вода замерзла, / Розколовши глечик. / І тріск раптовий розбудив мене.']
-
+#(?'slog'([^аеоіиєуюя]{0,}(?<=[^аеоіиєуюя])[аеоіиєуюя])|((?<=[аеоіиєуюя])[аеоіиєуюя])){5}[^\d]+[\/](?&slog){7}[^\d]+[\/](?&slog){5}[^\d][.!?\n]
 pattern = r"(?<=[^аеоіиєуюя])[аеоіиєуюя]|(?<=[аеоіиєуюя])[аеоіиєуюя]"
-
 for verse in verses:
     print(verse)
     splitted = re.split("/", verse.lower())
@@ -88,24 +87,21 @@ for verse in verses:
     else:
         print("NOT Haiku"+" "+str(cnt1)+" "+str(cnt2)+" "+str(cnt3))
 
-
 s = "Дуже      поширена помилка помилка - це лише      повторення повторення слова слова. Смішно, чи чи не так? Це - книга книгарні."
 pattern = r'(\b\w+\s)\1'
 print(s)
 print(re.sub(pattern, r'\1', s))
 
 
-
 badtext ='В        цьому\nреченні розриви рядків... Але це\nне так важливо! Зовсім? Так, зовсім! І це не повинно   заважати.'
 s = re.sub(r'(\n)|(\s{2,})', ' ', badtext) #удалаем двойные пробелы или перенос строки на один пробел
 print(s)
 
-#pattern = r'\s+' #удалаем двойные пробелы
-#s = re.sub(pattern, ' ', s)
-
-
 pattern = r"([^\s!.?]+[\w\s]+\.\.\.)|([^\s!.?]+[\w\s]+[.?!])"
 matches = re.finditer(pattern, s, re.MULTILINE)
-for matchNum, match in enumerate(matches, start=1):
+for match in matches:
     print(match.group())
+
+#for matchNum, match in enumerate(matches, start=1):
+#    print(match.group())
 
