@@ -112,8 +112,17 @@ print(s1)
 
 s = "abc"
 pattern = r'.'
+new = ""
 matches = re.finditer(pattern, s, re.MULTILINE)
 for match in matches:
-    print(match.group())
-s1 = re.sub(pattern, r'\1', s)
-print(s1)
+    # print(match.group())
+    code = ord(match.group())
+    new = new + str(code*code*code)
+print(new)
+
+
+'''
+s = "abc ї\n"
+for c in s:
+    print(ord(c))
+'''
