@@ -119,7 +119,6 @@ for match in matches:
     code = ord(match.group())
     new = new + str(code*code*code)
 print(new)
-
 '''
 s = "abc ї\n"
 for c in s:
