@@ -46,8 +46,8 @@ if res:
 s = "a2p333ad-23"
 pattern = "[\w\d-]{8,15}"
 res = re.findall(pattern, s)
-if res:
-    print(res)
+if (res == s):
+    print("password OK")
 else:
     print("password pattern not matched")
 
@@ -102,6 +102,18 @@ matches = re.finditer(pattern, s, re.MULTILINE)
 for match in matches:
     print(match.group())
 
-#for matchNum, match in enumerate(matches, start=1):
-#    print(match.group())
+s = "jsdj 025:34:59 sbga 23:45:50 !7dfhg dfh 15:34 add 27:55 sgsg "
+pattern = r'\b(([01][\d])|([2][0123])):([012345][\d])(:([012345][\d])){0,1}\b'
+matches = re.finditer(pattern, s, re.MULTILINE)
+for match in matches:
+    print(match.group())
+s1 = re.sub(pattern, "(TBD)", s)
+print(s1)
 
+s = "abc"
+pattern = r'.'
+matches = re.finditer(pattern, s, re.MULTILINE)
+for match in matches:
+    print(match.group())
+s1 = re.sub(pattern, r'\1', s)
+print(s1)
