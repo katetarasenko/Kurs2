@@ -120,7 +120,6 @@ for match in matches:
     new = new + str(code*code*code)
 print(new)
 
-
 '''
 s = "abc ї\n"
 for c in s:
