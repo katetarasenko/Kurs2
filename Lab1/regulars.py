@@ -1,5 +1,6 @@
 import re
 # 1
+
 s = "Розробити скрипт, який рахує кількість слів у введеному тексті."
 res = re.findall(r"\b\w+", s)
 word = len(res)
@@ -7,7 +8,7 @@ print(res)
 print("there are " + str(word) + " words in text")
 
 #2 Розробити скрипт, який буде отримувати номер авто та визначати валідність номеру та регіон реєстрації. Номера, що можуть бути введені відповідають поточному українському законодавству (лише стандартні номери, номери на замовлення не використовуємо). Використайте лише 3 регіони реєстрації України.
-"""
+
 s = "fhsdgfsdgfhsdfg AA1234AB jgsdhfgshggdf AE4536GH dgfhsdgfh AH6789HB"
 res = re.findall(r"\b[A-Z]{2}\d{4}[A-Z]{2}",s)
 print(res)
@@ -17,7 +18,7 @@ for x in res:
     rr = str(x[0]+x[1])
     #reg = re.findall(r"\b\w{2}", x)l
     print(str(x) + " " +region.get(rr))
-"""
+
 
 region = {'AA':'Kyiv', 'AE':'Dnipropetrivsk obl', 'AH':'Donetsk'}
 #s = "fhsdgfsdgfhsdfg AA1234AB jgsdhfgshggdf AE4536GH dgfhsdgfh AH6789HB"
@@ -46,10 +47,10 @@ if res:
 s = "a2p333ad-23"
 pattern = "[\w\d-]{8,15}"
 res = re.findall(pattern, s)
-if (res == s):
+if (res[0] == s):
     print("password OK")
 else:
-    print("password pattern not matched")
+    print("password pattern incorrect")
 
 s = "Розробіть скрипт, який буде порівнювати пароль, що вводить користувач з шаблоном, зашитим у коді. При цьому порівняння не повинно враховувати регістр, пробіли та всі інші розділові знаки, крім дефісу."
 res = re.findall(r"\b\w+", s)
@@ -57,9 +58,8 @@ word = len(res)
 print(res)
 print("there are " + str(word) + " words in text")
 
-
 # NASA UFO...
-s = "numb, amber,simple,ape"
+s = "numb, amber,simple,ape, e"
 res = re.findall(r"\b\w+", s)
 print(res)
 text = ""
@@ -67,10 +67,13 @@ for x in res:
     text = text + x[0].upper()
 print(text)
 
+print(''.join(i.upper() for i in re.findall(r"\b\w{1}", s)))
+
+
+#(?'slog'([^аеоіиєуюя]{0,}(?<=[^аеоіиєуюя])[аеоіиєуюя])|((?<=[аеоіиєуюя])[аеоіиєуюя])){5}[^\d]+[\/](?&slog){7}[^\d]+[\/](?&slog){5}[^\d][.!?\n]
 verses=['Ще не померла! / Закінчується осінь, / Я йду за обрій.',
        'Ночую просто неба. / Виє пес. / Теж допекла, мабýть, осіння мряка!',
        'Вода замерзла, / Розколовши глечик. / І тріск раптовий розбудив мене.']
-#(?'slog'([^аеоіиєуюя]{0,}(?<=[^аеоіиєуюя])[аеоіиєуюя])|((?<=[аеоіиєуюя])[аеоіиєуюя])){5}[^\d]+[\/](?&slog){7}[^\d]+[\/](?&slog){5}[^\d][.!?\n]
 pattern = r"(?<=[^аеоіиєуюя])[аеоіиєуюя]|(?<=[аеоіиєуюя])[аеоіиєуюя]"
 for verse in verses:
     print(verse)
@@ -102,7 +105,7 @@ matches = re.finditer(pattern, s, re.MULTILINE)
 for match in matches:
     print(match.group())
 
-s = "jsdj 025:34:59 sbga 23:45:50 !7dfhg dfh 15:34 add 27:55 sgsg "
+s = "jsdj 21:34:59 sbga 23:45:50 !7dfhg dfh 15:34 add 27:55 sgsg "
 pattern = r'\b(([01][\d])|([2][0123])):([012345][\d])(:([012345][\d])){0,1}\b'
 matches = re.finditer(pattern, s, re.MULTILINE)
 for match in matches:
@@ -115,12 +118,12 @@ pattern = r'.'
 new = ""
 matches = re.finditer(pattern, s, re.MULTILINE)
 for match in matches:
-    # print(match.group())
     code = ord(match.group())
     new = new + str(code*code*code)
 print(new)
-'''
-s = "abc ї\n"
+
+
+s = "absdhghgfhsdgsdhgssh vgifg fkg ytty437 gyufg d"
 for c in s:
-    print(ord(c))
-'''
+    print((ord(c)^3))
+
