@@ -1,16 +1,18 @@
 import pickle
 import shelve
+import os
 class game():
     def __init__(self):
-        self.player_list = []
+        self.player_list = ()
 
     def load(self):
-        # open a file, where you stored the pickled data
-        file = open('player_data', 'rb')
-        # dump information to that file
-        self.player_list = pickle.load(file)
-        # close the file
-        file.close()
+        if os.path.exists("player_data"):
+            # open a file, where you stored the pickled data
+            file = open('player_data', 'rb')
+            # dump information to that file
+            self.player_list = pickle.load(file)
+            # close the file
+            file.close()
 
     def save(self):
         # open a file, where you ant to store the data
@@ -83,8 +85,8 @@ class player():
 game1 = game()
 game1.load()
 game1.new_player("milo",12)
-game1.new_player("ric",17)
-game1.new_player("sam",10)
+# game1.new_player("ric",17)
+# game1.new_player("sam",10)
 game1.show_players()
 game1.save()
 '''
