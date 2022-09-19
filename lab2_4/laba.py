@@ -3,31 +3,42 @@ import shelve
 import os
 class game():
     def __init__(self):
-        self.player_list = ()
-
+        #self.player_list = set()
+        self.players = []# stores objects(name,weapon list as object,age)
     def load(self):
         if os.path.exists("player_data"):
             # open a file, where you stored the pickled data
             file = open('player_data', 'rb')
             # dump information to that file
-            self.player_list = pickle.load(file)
+            #self.player_list = pickle.load(file)
             # close the file
             file.close()
+        mydb = shelve.open('db')
+        for key in mydb.keys():
+            self.players.append(mydb[key])
+            #print(key)
+        mydb.close()
 
     def save(self):
         # open a file, where you ant to store the data
         file = open('player_data', 'wb')
         # dump information to that file
-        pickle.dump(self.player_list, file)
+        #pickle.dump(self.player_list, file)
         # close the file
         file.close()
+        mydb = shelve.open('db')
+        for gamer in self.players:
+            mydb[gamer.name] = gamer
+        mydb.close()
 
     def new_player(self,nickname,age):
         gamer = player(nickname,age)
-        self.player_list.append(nickname)
+        self.players.append(gamer)
+        #self.player_list.add(nickname)
     def show_players(self):
-        for name in self.player_list:
-            print(name)
+        #for name in self.player_list:
+         for gamer in self.players:
+            gamer.whoami()
 class weapon():
     def __init__(self, name):
         self.name = name
@@ -84,9 +95,13 @@ class player():
 
 game1 = game()
 game1.load()
-game1.new_player("milo",12)
-# game1.new_player("ric",17)
+# game1.new_player("milo",12)
 # game1.new_player("sam",10)
+# game1.new_player("ric",17)
+# game1.players[1].add_weapon(axe('axe1'))
+# game1.players[2].add_weapon(gun('newgun'))
+# game1.new_player("morty",18)
+# game1.players[3].add_weapon(gun('gun1'))
 game1.show_players()
 game1.save()
 '''
