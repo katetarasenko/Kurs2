@@ -14,7 +14,7 @@ def rename_file(path, type1, type2):
     else:
         print("Path not exist")
 
-rename_file('test', 'csv', 'txt')
+rename_file('owid-covid-data', 'txt', 'csv')
 rename_file('test', 'txt', 'csv')
 
 # prjpath = os.getcwd()

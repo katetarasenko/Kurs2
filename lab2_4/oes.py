@@ -13,6 +13,12 @@ if os.path.exists(newdir):
 else:
      os.mkdir(newdir)
 os.rename('player_data','player-info')
+
+
+
+
+
+
 # #os.mkdir("d:\dir1")
 # p = r"d:\dir1\dir2"
 # os.mkdir(p)
