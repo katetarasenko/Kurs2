@@ -6,13 +6,6 @@ class game():
         #self.player_list = set()
         self.players = []# stores objects(name,weapon list as object,age)
     def load(self):
-        # if os.path.exists("player_data"):
-        #     # open a file, where you stored the pickled data
-        #     file = open('player_data', 'rb')
-        #     # dump information to that file
-        #     #self.player_list = pickle.load(file)
-        #     # close the file
-        #     file.close()
         mydb = shelve.open('db')
         for key in mydb.keys():
             self.players.append(mydb[key])
